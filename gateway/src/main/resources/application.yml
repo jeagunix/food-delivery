@@ -1,0 +1,98 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+      routes:
+        - id: order
+          uri: http://localhost:8081
+          predicates:
+            - Path=/주문/**, /orders/**, /메뉴판/**, /통합주문상태/**, /menuLists/**, /orderStatuses/**, /popularMenuLists/**
+        - id: pay
+          uri: http://localhost:8082
+          predicates:
+            - Path=/결제이력/**, /payments/**, 
+        - id: store
+          uri: http://localhost:8083
+          predicates:
+            - Path=/주문관리/**, /orderManagements/**, /주문상세보기/**, /orderViews/**
+        - id: customer
+          uri: http://localhost:8084
+          predicates:
+            - Path=/notificationRecords/**, /orderStatuses/**
+        - id: delivery
+          uri: http://localhost:8085
+          predicates:
+            - Path=/deliveries/**, 
+        - id: review
+          uri: http://localhost:8086
+          predicates:
+            - Path=/reviews/**, 
+        - id: frontend
+          uri: http://localhost:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: order
+          uri: http://order:8080
+          predicates:
+            - Path=/주문/**, /orders/**, /메뉴판/**, /통합주문상태/**, /menuLists/**, /orderStatuses/**, /popularMenuLists/**
+        - id: pay
+          uri: http://pay:8080
+          predicates:
+            - Path=/결제이력/**, /payments/**, 
+        - id: store
+          uri: http://store:8080
+          predicates:
+            - Path=/주문관리/**, /orderManagements/**, /주문상세보기/**, /orderViews/**
+        - id: customer
+          uri: http://customer:8080
+          predicates:
+            - Path=/notificationRecords/**, /orderStatuses/**
+        - id: delivery
+          uri: http://delivery:8080
+          predicates:
+            - Path=/deliveries/**, 
+        - id: review
+          uri: http://review:8080
+          predicates:
+            - Path=/reviews/**, 
+        - id: frontend
+          uri: http://frontend:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080
