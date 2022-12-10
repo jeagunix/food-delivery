@@ -14,9 +14,7 @@ public class Paid extends AbstractEvent {
     private String orderId;
     private Double price;
 
-    public Paid(결제이력 aggregate){
-        super(aggregate);
-    }
+
     public Paid(){
         super();
     }

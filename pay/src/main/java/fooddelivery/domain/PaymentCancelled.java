@@ -13,9 +13,6 @@ public class PaymentCancelled extends AbstractEvent {
     private Long id;
     private String orderId;
 
-    public PaymentCancelled(결제이력 aggregate){
-        super(aggregate);
-    }
     public PaymentCancelled(){
         super();
     }

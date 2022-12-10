@@ -1,6 +1,5 @@
 package fooddelivery.domain;
 
-import fooddelivery.domain.결제승인됨;
 import fooddelivery.domain.Paid;
 import fooddelivery.domain.PaymentCancelled;
 import fooddelivery.PayApplication;
@@ -42,18 +41,12 @@ public class Payment  {
     @PrePersist
     public void onPrePersist(){
 
-
-        결제승인됨 결제승인됨 = new 결제승인됨(this);
-        결제승인됨.publishAfterCommit();
-
-
-
-        Paid paid = new Paid(this);
+        Paid paid = new Paid();
         paid.publishAfterCommit();
 
 
 
-        PaymentCancelled paymentCancelled = new PaymentCancelled(this);
+        PaymentCancelled paymentCancelled = new PaymentCancelled();
         paymentCancelled.publishAfterCommit();
 
     }
