@@ -3,7 +3,7 @@
 # 서비스 시나리오
 
 [이벤트스토밍]
-<img width="582" alt="배달" src="https://user-images.githubusercontent.com/44859411/206893597-90572898-dbf0-4176-911b-5af1f80719f5.PNG">
+![image](https://user-images.githubusercontent.com/12772082/203239532-2d7e1e05-a823-463a-a57b-6220b31e1617.png)
 
 기능적 요구사항
 1. 고객이 메뉴를 선택하여 주문한다.
@@ -18,11 +18,12 @@
 10. 주문상태가 바뀔 때 마다 카톡으로 알림을 보낸다.
 11. 고객이 요리를 배달 받으면 배송확인 버튼을 탭하여, 모든 거래가 완료된다.
 12. ((주문량이 많은 음식을 랭킹으로 보여준다))
-13. ((인기순위메뉴를 보여준다))
+13. ((배달이 완료된 후에 리뷰작성 한다))
 
 # 체크포인트
 # Saga (pub / Sub)
-<img width="531" alt="SAGA" src="https://user-images.githubusercontent.com/44859411/206894197-505107be-066d-4177-8cdb-058fecb58deb.PNG">
+![image](https://user-images.githubusercontent.com/12772082/203246633-1a2602c9-37cb-4b7d-bd78-ddbe9e99a1f3.png)
+![image](https://user-images.githubusercontent.com/12772082/203246777-1d0080aa-b2c7-45b8-970a-2d13b7e54227.png)
 
 # CQRS
 Command and Query Responsibility Segregation(명령과 조회의 책임 분리)
